@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block title %} Home {% endblock title %} {% block
+body %}
+<div class="shadow-sm p-3 mb-5 bg-body rounded m-4">
+  <h2>Enter Some Text and get a handwritten version of your text</h2>
+  <form method="POST" action="/" enctype="multipart/form-data">
+    <div>
+      <label for="input_text" class="form-label">Enter Text:- </label>
+      <textarea
+        class="form-control"
+        id="input_text"
+        name="input_text"
+        rows="10"
+        required
+      ></textarea>
+    </div>
+    <button class="btn btn-primary m-4" type="submit" value="Submit">
+      Create
+    </button>
+  </form>
+  {% if filename %}
+  <div class="container text-center">
+    <img
+      src="{{url_for('display', filename = filename)}}"
+      style="width: 50%; height: 50%"
+      class="row"
+      alt="image"
+    />
+    <a
+      download="file"
+      href="{{ url_for('download_image', filename= filename) }}"
+      class="btn btn-primary row"
+      >Download Image</a
+    >
+  </div>
+
+  {% endif %}
+</div>
+<script></script>
+{% endblock body %}
