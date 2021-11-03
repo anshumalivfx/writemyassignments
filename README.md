@@ -1,2 +1,3 @@
-# writemyassignments
-Text To Handwriting
+# Text To Handwriting
+
+install packages from requirements.txt
